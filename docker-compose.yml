@@ -3,20 +3,20 @@ version: "3.7"
 services:  
     database:
         image: postgres
-        container_name: eamusic_container
+        container_name: database_eamusic
         restart: always
         ports: 
             - 5432:5432
         environment: 
-        - POSTGRES_USER=eamusicadmin
-        - POSTGRES_PASSWORD=admin
-        - POSTGRES_DB=eamusic
+        - POSTGRES_USER=usereamusic
+        - POSTGRES_PASSWORD=eamusicpassword
+        - POSTGRES_DB=eamusic  
         volumes:
         - pgdata:/data/postgres
            
-    app:
+    app:    
         build: .
-        container_name: eamusic_container_app
+        container_name: eamusic
         restart: always
         ports:
             - 3333:3333

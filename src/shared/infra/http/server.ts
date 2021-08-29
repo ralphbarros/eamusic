@@ -1,11 +1,11 @@
 import express from "express";
 import { musicsRoutes } from "../../../routes/musics.routes";
-import createConnection from "../typeorm"
-import "../typeorm"
+//import createConnection from "../typeorm"
+
 
 const app = express();
 
-createConnection();
+//createConnection();
 
 
 app.use(express.json());
