@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import express from "express";
 import { musicsRoutes } from "../../../routes/musics.routes";
 //import createConnection from "../typeorm"
