@@ -1,25 +1,12 @@
 import { Router } from "express";
-import {v4 as uuidV4} from "uuid";
-import { ICreateMusicDTO } from "../modudes/music/dtos/ICreateMusicDTO";
+import { CreatMusicController } from "modudes/music/infra/usecases/createMusic/CreateMusicController";
+
 
 const musicsRoutes = Router();
 
-const musics:ICreateMusicDTO[] = [];
+const createMusicController= new CreatMusicController();
 
-musicsRoutes.post("/musics",(request,response) => {
-    const { name, band} = request.body;
 
-    const music:ICreateMusicDTO = {
-        id: uuidV4(),
-        name,
-        band,
-        created_at: new Date()
-    }
-
-    musics.push(music);
-
-    return response.status(201).json(music);
-
-})
+musicsRoutes.post("/musics",createMusicController.handle)
 
 export { musicsRoutes };
