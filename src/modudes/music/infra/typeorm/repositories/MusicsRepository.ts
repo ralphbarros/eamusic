@@ -9,9 +9,10 @@ class MusicsRepository implements IMusicRepository {
 private repository: Repository<Music>
 
 constructor(){
-    this.repository = getRepository(Music);
+                                                                    
 }
     async create({id,name,band }: ICreateMusicDTO): Promise<Music> {
+        this.repository = getRepository(Music);  
        const music = this.repository.create({
            id,
            name,

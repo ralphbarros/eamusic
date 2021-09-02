@@ -2,12 +2,12 @@
     "type": "postgres",
     "port": 5432,
     "host": "localhost",
-    "username": "usereamusic",
-    "password":"eamusicpassword",
-    "database:": "eamusic",
-    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+    "username": "adminuser",
+    "password": "adminuser",
+    "database": "eamusic", 
+    "migrations": ["./src/database/migrations/*.ts"],
     "entities": ["./src/modules/**/entities/*.ts"],
-    "cli":{
-        "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    "cli": {
+      "migrationsDir": "./src/database/migrations"
     }
-}
+  }
