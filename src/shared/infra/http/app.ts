@@ -1,12 +1,12 @@
 import 'reflect-metadata';
 import { router } from "./routes"
 import express from 'express';
-//import createConnection from "../../infra/typeorm/index";
 import "../../container";
+import  createConnection from "../../../database"
 
 const app = express();
 
-//createConnection();
+createConnection();
 
 app.use(express.json());
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { CreatMusicController } from "modudes/music/infra/usecases/createMusic/CreateMusicController";
+import { CreatMusicController } from "modules/music/infra/usecases/createMusic/CreateMusicController";
 
 
 const musicsRoutes = Router();

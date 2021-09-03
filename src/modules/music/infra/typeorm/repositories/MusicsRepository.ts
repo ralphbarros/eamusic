@@ -1,5 +1,5 @@
-import { ICreateMusicDTO } from "modudes/music/dtos/ICreateMusicDTO";
-import { IMusicRepository } from "modudes/music/repositories/IMusicRepository";
+import { ICreateMusicDTO } from "modules/music/dtos/ICreateMusicDTO";
+import { IMusicRepository } from "modules/music/repositories/IMusicRepository";
 import { getRepository, Repository } from "typeorm";
 import { Music } from "../entities/Music";
 
@@ -9,10 +9,11 @@ class MusicsRepository implements IMusicRepository {
 private repository: Repository<Music>
 
 constructor(){
+    this.repository = getRepository(Music); 
                                                                     
 }
     async create({id,name,band }: ICreateMusicDTO): Promise<Music> {
-        this.repository = getRepository(Music);  
+    
        const music = this.repository.create({
            id,
            name,

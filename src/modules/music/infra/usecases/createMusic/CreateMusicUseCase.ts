@@ -1,4 +1,4 @@
-import { IMusicRepository } from "modudes/music/repositories/IMusicRepository";
+import { IMusicRepository } from "modules/music/repositories/IMusicRepository";
 import { inject, injectable } from "tsyringe";
 import { Music } from "../../typeorm/entities/Music";
 
