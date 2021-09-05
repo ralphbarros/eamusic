@@ -23,6 +23,33 @@ constructor(){
        return music;
     }
 
+    async list(): Promise<Music[]>{
+        const musics = await this.repository.find()
+        return musics;
+    }
+
+    
+    async findByBandName(band: string ):Promise<Music>{
+        const  music = await this.repository.findOne({ band })
+        return music;
+    }
+
+    async findById(id: string ):Promise<Music>{
+        const  music = await this.repository.findOne({ id })
+        return music;
+    }
+
+    async findByName(name: string ):Promise<Music>{
+        const  music = await this.repository.findOne({ name })
+        return music;
+    }
+
+    async deleteMusicById(id: string ):Promise<void>{
+        const  music = await this.repository.findOne({ id })
+     
+    }
+
+
 }
 
 export{MusicsRepository}
