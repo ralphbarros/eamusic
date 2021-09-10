@@ -11,7 +11,6 @@ class ListMusicsController {
         const allMusics = await listMusicsUseCase.execute();
         return response.status(201).json(allMusics);
 
-
     }
 }
 

@@ -45,7 +45,7 @@ constructor(){
     }
 
     async deleteMusicById(id: string ):Promise<void>{
-        const  music = await this.repository.findOne({ id })
+      await this.repository.delete({ id })
      
     }
 

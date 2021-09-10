@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import {container} from "tsyringe"
-import {CreateMusicUseCase} from "./CreateMusicUseCase"
+import {UpdateMusicUseCase} from "./UpdateMusicUseCase"
 
 
-class CreateMusicController {
+class UpdateMusicController {
     async handle( request: Request, response: Response): Promise<Response>{
         const { name, band } = request.body;
-        const createMusicUseCase = container.resolve(CreateMusicUseCase);
+        const updateMusicUseCase = container.resolve(UpdateMusicUseCase);
 
-        const music = await createMusicUseCase.execute({
+        const music = await updateMusicUseCase.execute({
             name,
             band
         })
@@ -18,4 +18,4 @@ class CreateMusicController {
     }
 }
 
-export {CreateMusicController}
+export {UpdateMusicController}

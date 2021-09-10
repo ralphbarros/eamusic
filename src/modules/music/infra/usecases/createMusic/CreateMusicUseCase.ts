@@ -16,27 +16,21 @@ class CreateMusicUseCase {
         private musicsRepository: IMusicRepository
     ){}
 
-    async execute({name,band}:IRequest): Promise<Music> {
-    
-        try {
-            const musicAlreadyExists = this.musicsRepository.findByName(name);
-            if(musicAlreadyExists){
-                const messageError = "This Music Already Exists!"
-            }
-            
-        } catch (error) {
-            return error.Message
+    async execute({name,band}:IRequest): Promise<Music | string> {
+        const musicAlreadyExists = this.musicsRepository.findByName(name);
+        if(musicAlreadyExists){
+            return "This Music Already Exists!"
+               
+         }
+         else{
+            const music = await this.musicsRepository.create({
+                name,
+                band
+            })
+            return music
+                
         }
-
-    
-
-    const music = await this.musicsRepository.create({
-        name,
-        band
-    })
-
-    return music
-    
+            
     }
 
 
